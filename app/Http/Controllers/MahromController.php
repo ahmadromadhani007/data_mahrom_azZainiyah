@@ -11,7 +11,7 @@ class MahromController extends Controller
     public function index()
     {
         $mahrom = Mahrom::all();
-        return view('home', compact('test'));
+        return view('home', compact('mahrom'));
         // $mahrom = Mahrom::all();
         // return response()->json([
         //     'status' => 'success',
