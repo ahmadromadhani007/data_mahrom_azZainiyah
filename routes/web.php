@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/',  'MahromController');
 Route::resource('/', MahromController::class);
+Route::get('santri', [MahromController::class, 'santri']);
+
+Route::get('/about', function () {
+    return view('welcome');
+});
+
