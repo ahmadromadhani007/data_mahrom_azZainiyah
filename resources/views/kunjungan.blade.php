@@ -7,7 +7,7 @@
       <div class="row mb-2">
         <div class="col-sm-6">
           <h1 class="m-0">{{ $data['wrapper'] }}</h1>
-          <a href="/tambahWaliSantri" class="btn btn-success mt-2">Tambah</a>
+          <a href="/tambahKunjungan" class="btn btn-success mt-2">Tambah</a>
         </div><!-- /.col -->
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -39,23 +39,21 @@
                     <thead>
                       <tr>
                         <th>ID</th>
-                        <th>Nama</th>
-                        <th>Alamat</th>
-                        <th>No. HP</th>
-                        <th>Email</th>
-                        <th>Status</th>
+                        <th>Jumlah Kunjungan</th>
+                        <th>Jumlah Tamu</th>
+                        <th>Hari Kunjungan</th>
+                        <th>Keterangan</th>
                         <th class="text-center">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($mahrom as $m)
+                        @foreach ($kunjungan as $m)
                         <tr>
                             <td>{{ $m['id'] }}</td>
-                            <td>{{ $m['nama'] }}</td>
-                            <td>{{ $m['alamat'] }}</td>
-                            <td>{{ $m['no_hp'] }}</td>
-                            <td>{{ $m['email'] }}</td>
-                            <td>{{ $m['status'] }}</td>
+                            <td>{{ $m['jml_kunjungan'] }}</td>
+                            <td>{{ $m['jml_tamu'] }}</td>
+                            <td>{{ $m['hari_kunjungan'] }}</td>
+                            <td>{{ $m['keterangan'] }}</td>
                             <td class="text-center">
                                 <a href="/editSantri/" class="btn btn-warning text-white"><i class="fas fa-edit"></i> Edit</a>
                                 <a href="" class="btn btn-danger text-white"><i class="fas fa-trash"></i> Delete</a>

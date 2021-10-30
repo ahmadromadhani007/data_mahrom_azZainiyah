@@ -18,6 +18,27 @@ class SettingKunjunganController extends Controller
         ]);
     }
 
+    public function kunjungan()
+    {
+        $kunjungan = SettingKunjungan::all();
+        $data = [
+            "title" => "Setting Kunjungan",
+            "wrapper" => "Data Kunjungan"
+        ];
+        return view('kunjungan', compact('kunjungan', 'data'));
+    }
+
+    public function tambahKunjungan()
+    {
+        $santri = SettingKunjungan::all();
+        $data = [
+            "title" => "Tambah Kunjungan",
+            "wrapper" => "Tambah Data Kunjungan"
+        ];
+        return view('tambahKunjungan', compact('santri', 'data'));
+    }
+
+
     public function show($id)
     {
         $setting_kunjungan = SettingKunjungan::find($id);

@@ -54,16 +54,6 @@ class MahromController extends Controller
         return response()->json($santri, 200);
     }
 
-    public function waliSantri()
-    {
-        $mahrom = WaliSantri::all();
-        $data = [
-            "title" => "Wali Santri",
-            "wrapper" => "Data Wali Santri"
-        ];
-        return view('santri', compact('mahrom', 'data'));
-    }
-
     public function show($id)
     {
         $mahrom = Mahrom::find($id);
@@ -86,7 +76,7 @@ class MahromController extends Controller
     //     return view('home', compact('mahrom'));
     // }
 
-    public function create(Request $request)
+    public function createTest(Request $request)
     {
         $rules = [
             'nama' => 'required | string',

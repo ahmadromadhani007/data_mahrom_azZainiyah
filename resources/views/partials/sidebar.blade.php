@@ -47,6 +47,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="/kunjungan" class="nav-link {{ ($data['title'] === 'Setting Kunjungan') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-luggage-cart"></i>
+              <p>
+                Setting Kunjungan
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
