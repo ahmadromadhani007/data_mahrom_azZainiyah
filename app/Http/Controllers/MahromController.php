@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahrom;
+use App\Models\WaliSantri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -11,12 +12,46 @@ class MahromController extends Controller
     public function index()
     {
         $mahrom = Mahrom::all();
-        return view('home', compact('mahrom'));
+        $data = [
+            "title" => "Admin",
+            "wrapper" => "Dashboard"
+        ];
+        return view('dashboard', compact('mahrom', 'data'));
         // $mahrom = Mahrom::all();
         // return response()->json([
         //     'status' => 'success',
         //     'data' => $mahrom
         // ]);
+    }
+
+    public function santri()
+    {
+        $mahrom = Mahrom::all();
+        $data = [
+            "title" => "Santri",
+            "wrapper" => "Data Santri"
+        ];
+        return view('santri', compact('mahrom', 'data'));
+    }
+
+    public function tambahSantri()
+    {
+        $santri = Mahrom::all();
+        $data = [
+            "title" => "Tambah Santri",
+            "wrapper" => "Tambah Santri"
+        ];
+        return view('tambahSantri', compact('santri', 'data'));
+    }
+
+    public function editSantri($id)
+    {
+        $santri = Mahrom::find($id);
+        $data = [
+            "title" => "Tambah Santri",
+            "wrapper" => "Tambah Santri"
+        ];
+        return response()->json($santri, 200);
     }
 
     public function show($id)
@@ -41,7 +76,7 @@ class MahromController extends Controller
     //     return view('home', compact('mahrom'));
     // }
 
-    public function create(Request $request)
+    public function createTest(Request $request)
     {
         $rules = [
             'nama' => 'required | string',
@@ -61,8 +96,7 @@ class MahromController extends Controller
         }
 
         $mahrom = Mahrom::create($data);
-
-        return response()->json(['status' => 'success', 'data' => $mahrom]);
+        return redirect('/santri');
     }
 
     public function update(Request $request, $id)

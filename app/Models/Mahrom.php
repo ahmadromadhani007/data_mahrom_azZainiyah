@@ -12,7 +12,7 @@ class Mahrom extends Model
     protected $table = 'tb_mahrom';
 
     protected $fillable = [
-        'nama', 'alamat', 'daerah'
+        'id', 'nama', 'alamat', 'daerah'
     ];
 
     protected $casts = [

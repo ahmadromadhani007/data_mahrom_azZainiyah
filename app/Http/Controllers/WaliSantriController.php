@@ -17,6 +17,26 @@ class WaliSantriController extends Controller
         ]);
     }
 
+    public function waliSantri()
+    {
+        $mahrom = WaliSantri::all();
+        $data = [
+            "title" => "Wali Santri",
+            "wrapper" => "Data Wali Santri"
+        ];
+        return view('waliSantri', compact('mahrom', 'data'));
+    }
+
+    public function tambahWaliSantri()
+    {
+        $santri = WaliSantri::all();
+        $data = [
+            "title" => "Tambah Wali Santri",
+            "wrapper" => "Tambah Wali Santri"
+        ];
+        return view('tambahWaliSantri', compact('santri', 'data'));
+    }
+
     public function show($id)
     {
         $wali_santri = WaliSantri::find($id);
@@ -33,7 +53,7 @@ class WaliSantriController extends Controller
         ]);
     }
 
-    public function create(Request $request)
+    public function createWali(Request $request)
     {
         $rules = [
             'nama' => 'required | string',
@@ -56,7 +76,7 @@ class WaliSantriController extends Controller
 
         $wali_santri = WaliSantri::create($data);
 
-        return response()->json(['status' => 'success', 'data' => $wali_santri]);
+        return redirect('/santri');
     }
 
     public function update(Request $request, $id)

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\MahromController;
+use App\Http\Controllers\SettingKunjunganController;
+use App\Http\Controllers\WaliSantriController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/',  'MahromController');
 Route::resource('/', MahromController::class);
+Route::get('santri', [MahromController::class, 'santri']);
+Route::get('tambahSantri', [MahromController::class, 'tambahSantri']);
+Route::get('editSantri/{id}', [MahromController::class, 'editSantri']);
+
+Route::get('waliSantri', [WaliSantriController::class, 'waliSantri']);
+Route::get('tambahWaliSantri', [WaliSantriController::class, 'tambahWaliSantri']);
+
+Route::get('kunjungan', [SettingKunjunganController::class, 'kunjungan']);
+Route::get('tambahKunjungan', [SettingKunjunganController::class, 'tambahKunjungan']);
+
+
+
+Route::get('/about', function () {
+    return view('welcome');
+});
