@@ -41,7 +41,9 @@
                         <th>ID</th>
                         <th>Nama</th>
                         <th>Alamat</th>
-                        <th>Daerah</th>
+                        <th>No. HP</th>
+                        <th>Email</th>
+                        <th>Status</th>
                         <th class="text-center">Action</th>
                       </tr>
                     </thead>

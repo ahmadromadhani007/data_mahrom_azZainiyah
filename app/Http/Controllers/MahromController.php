@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahrom;
+use App\Models\WaliSantri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -29,6 +30,36 @@ class MahromController extends Controller
         $data = [
             "title" => "Santri",
             "wrapper" => "Data Santri"
+        ];
+        return view('santri', compact('mahrom', 'data'));
+    }
+
+    public function tambahSantri()
+    {
+        $santri = Mahrom::all();
+        $data = [
+            "title" => "Tambah Santri",
+            "wrapper" => "Tambah Santri"
+        ];
+        return view('tambahSantri', compact('santri', 'data'));
+    }
+
+    public function editSantri($id)
+    {
+        $santri = Mahrom::find($id);
+        $data = [
+            "title" => "Tambah Santri",
+            "wrapper" => "Tambah Santri"
+        ];
+        return response()->json($santri, 200);
+    }
+
+    public function waliSantri()
+    {
+        $mahrom = WaliSantri::all();
+        $data = [
+            "title" => "Wali Santri",
+            "wrapper" => "Data Wali Santri"
         ];
         return view('santri', compact('mahrom', 'data'));
     }
@@ -75,8 +106,7 @@ class MahromController extends Controller
         }
 
         $mahrom = Mahrom::create($data);
-
-        return response()->json(['status' => 'success', 'data' => $mahrom]);
+        return redirect('/santri');
     }
 
     public function update(Request $request, $id)

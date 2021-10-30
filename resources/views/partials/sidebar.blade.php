@@ -39,6 +39,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="/waliSantri" class="nav-link {{ ($data['title'] === 'Wali Santri') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Data Wali Santri
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
