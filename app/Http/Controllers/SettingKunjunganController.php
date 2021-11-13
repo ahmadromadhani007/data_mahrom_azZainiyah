@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Validator;
 
 class SettingKunjunganController extends Controller
 {
+    public function __construct()
+    {
+        $this->SettingKunjungan = new SettingKunjungan();
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $setting_kunjungan = SettingKunjungan::all();

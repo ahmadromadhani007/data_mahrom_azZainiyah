@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahrom;
-use App\Models\WaliSantri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class MahromController extends Controller
 {
+    public function __construct()
+    {
+        $this->Mahrom = new Mahrom();
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $mahrom = Mahrom::all();
@@ -27,7 +32,7 @@ class MahromController extends Controller
     public function santri()
     {
         $mahrom = Mahrom::all();
-        $data = [
+        $data =  [
             "title" => "Santri",
             "wrapper" => "Data Santri"
         ];
@@ -76,7 +81,7 @@ class MahromController extends Controller
     //     return view('home', compact('mahrom'));
     // }
 
-    public function createTest(Request $request)
+    public function create(Request $request)
     {
         $rules = [
             'nama' => 'required | string',

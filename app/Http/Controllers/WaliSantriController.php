@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Validator;
 
 class WaliSantriController extends Controller
 {
+    public function __construct()
+    {
+        $this->WaliSantri = new WaliSantri();
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $wali_santri = WaliSantri::all();
